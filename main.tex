@@ -1,0 +1,232 @@
+% ==============================================================
+% Document Class
+% ==============================================================
+\documentclass[11pt]{article}
+
+% ==============================================================
+% Encoding & Language
+% ==============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[none]{hyphenat}
+
+% ==============================================================
+% Page Layout & Margins
+% ==============================================================
+\usepackage{anysize}
+\marginsize{1cm}{1cm}{1cm}{1cm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize TU Delft}
+\fancyhead[R]{\footnotesize MAE}
+\fancyfoot[L]{\footnotesize Combustion for PP}
+\fancyfoot[C]{\thepage}
+\fancyfoot[R]{\footnotesize Q4}
+\renewcommand{\footrulewidth}{0.4pt}
+
+% ==============================================================
+% Math
+% ==============================================================
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{bm}
+\usepackage{cancel}
+\usepackage{esvect}
+
+% ==============================================================
+% Graphics, Figures & Tables
+% ==============================================================
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage[export]{adjustbox}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{sidecap}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{epstopdf}
+\usepackage{subcaption}
+
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{makecell}
+\usepackage{booktabs}
+
+\usepackage[table]{xcolor}
+
+
+\usepackage[version=4,arrows=pgf-filled,
+textfontname=sffamily,
+mathfontname=mathsf]{mhchem}
+
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{units}
+
+% ==============================================================
+% Lists & Enumerations
+% ==============================================================
+\usepackage{enumitem}
+
+% ==============================================================
+% Hyperlinks & References
+% ==============================================================
+\usepackage[hyphens]{url}
+\usepackage[pdfborder={0 0 0}]{hyperref}
+\usepackage{fancyref}
+\usepackage{cite}
+\usepackage[nottoc,numbib]{tocbibind}
+
+% ==============================================================
+% Nomenclature
+% ==============================================================
+\usepackage{nomencl}
+\makenomenclature
+\setlength{\nomlabelwidth}{2cm}
+
+% ==============================================================
+% Code Listings
+% ==============================================================
+\usepackage{matlab-prettifier}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\definecolor{modelicaRed}{RGB}{200, 0, 0}
+\definecolor{modelicaGreen}{RGB}{0, 140, 0}
+\definecolor{modelicaGray}{RGB}{245, 245, 245}
+\definecolor{modelicaString}{RGB}{0, 140, 0}
+\definecolor{modelicaLightRed}{RGB}{255,0,0}
+
+\lstdefinelanguage{Modelica}{
+  morekeywords={
+    model, end, equation, algorithm, record, package, import,
+    extends, replaceable, redeclare, parameter, constant,
+    input, output, protected, public,
+    if, then, else, elseif, for, loop, connect,
+    annotation, each, flow, stream
+  },
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+}
+
+% ==============================================================
+% Misc Packages
+% ==============================================================
+\usepackage{setspace}
+\usepackage{subfiles}
+\usepackage{etoolbox}
+\usepackage{IEEEtrantools}
+\usepackage{eurosym}
+\usepackage{datetime}
+\usepackage{makeidx}
+\makeindex
+\usepackage[inline]{todonotes}
+\usepackage{appendix}
+\usepackage{siunitx}
+\usepackage{lipsum}
+\usepackage{duckuments}
+\usepackage{blindtext}
+\usepackage{calligra}
+\usepackage{mathrsfs}
+
+\usepackage[version=4,arrows=pgf-filled,
+textfontname=sffamily,
+mathfontname=mathsf]{mhchem}
+
+% ==============================================================
+% Custom Commands & Settings
+% ==============================================================
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+\renewcommand{\figurename}{Fig.}
+\newcommand{\sen}{\operatorname{\sen}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\renewcommand{\appendixpagename}{\LARGE Apêndices}
+\renewcommand{\appendixtocname}{Apêndices}
+\renewcommand{\baselinestretch}{1.05}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+
+\newcommand{\cross}[1]{%
+  \begin{tikzpicture}[baseline=(X.base)]
+    \node[inner sep=0pt] (X) {#1};
+    \draw[red, thick] (X.south west) -- (X.north east);
+    \draw[red, thick] (X.north west) -- (X.south east);
+  \end{tikzpicture}%
+}
+
+\newcommand{\refautor}{Kurzke and Halliwell \cite{Kurzke2018}}
+
+\definecolor{istblue}{RGB}{3, 171, 230}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+
+% ==============================================================
+%                          DOCUMENT
+% ==============================================================
+\begin{document}
+
+\subfile{header}
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\setlength{\columnsep}{1cm}
+
+\tableofcontents
+\newpage
+\listoftables
+\listoffigures
+\printnomenclature
+\newpage
+
+% ==============================================================
+% Nomenclature entries
+% ==============================================================
+\nomenclature{$\phi$}{Equivalence ratio}
+\nomenclature{$X$}{Mole fraction}
+\nomenclature{$T$}{Temperature [K]}
+\nomenclature{$p$}{Pressure [Pa]}
+\nomenclature{$Y$}{Mass fraction}
+\nomenclature{$\dot{m}$}{Mass flow rate [kg/s]}
+\nomenclature{$W$}{Molar mass \nomunit{g/mol}}
+\nomenclature{LHV}{Lower heating value}
+
+% ==============================================================
+% Content
+% ==============================================================
+tijhjhb
+
+% ==============================================================
+% Bibliography
+% ==============================================================
+\bibliographystyle{unsrt}
+\bibliography{refs}
+
+\end{document}
