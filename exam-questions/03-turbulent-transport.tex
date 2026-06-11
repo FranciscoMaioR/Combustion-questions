@@ -7,58 +7,59 @@
 \paragraph{Answer}
 Lecture 8: time scales
 
-Important itmescales are teh chemical $t_c$, kmologorov $t_k$ and the large or integral $t_t$.  
+Important timescales are the chemical $t_c$, the Kolmogorov $t_k$, and the large (or integral) $t_t$.
 
-For turbulent flow large time scales relate to Re thug
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.75\linewidth]{Re.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
-\end{figure}
-
-Large and chemical timescales relate to chmical though the Damkihler number
+For turbulent flow, the large timescales relate to the chemical timescale through the turbulent Reynolds number, Re$_t$.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{Da.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
+    \includegraphics[width=0.75\linewidth]{exam-questions/03-turbulent-transport/Re.png}
+    \caption{Definition of the turbulent Reynolds number $\mathrm{Re}_t$, relating the integral length scale $l_t$ and velocity fluctuation $u'(l_t)$ to the kinematic viscosity $\nu$.}
+    \label{fig:re-number}
 \end{figure}
 
-turbulent time scales is related to chemical though the karlovitz number
+The large and chemical timescales are related through the Damk\"ohler number.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{karl.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
+    \includegraphics[width=0.75\linewidth]{exam-questions/03-turbulent-transport/Da.png}
+    \caption{Definition of the Damk\"ohler number $\mathrm{Da}$ as the ratio of the integral (large-scale) timescale $t_t$ to the chemical timescale $t_{chem}$.}
+    \label{fig:damkohler-number}
 \end{figure}
-Thi sets up  diferent flame regimes as seen in teh peters diagram. 
 
-Y axesis ratio between turbulent flow speed changes to unstreached flame speed (consumption speed) 
+The turbulent (Kolmogorov) and chemical timescales are related through the Karlovitz number.
 
-X axis is the ratio of large scales to the unstreached flame thikness. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{exam-questions/03-turbulent-transport/karl.png}
+    \caption{Definition of the Karlovitz number $\mathrm{Ka}$ as the ratio of the chemical timescale $t_{chem}$ to the Kolmogorov timescale $t_k$.}
+    \label{fig:karlovitz-number}
+\end{figure}
+
+This sets up the different flame regimes, as seen in the Peters diagram.
+
+The y-axis is the ratio of the turbulent velocity fluctuation to the unstretched flame speed (consumption speed), $u_{rms}/s_L^0$.
+
+The x-axis is the ratio of the integral length scale to the unstretched flame thickness, $l_t/\delta$.
 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{Peters_diagram.png}
-    \caption{Enter Caption}
-    \label{fig:placeholder}
+    \includegraphics[width=0.75\linewidth]{exam-questions/03-turbulent-transport/Peters_diagram.png}
+    \caption{Borghi--Peters regime diagram for turbulent premixed combustion, showing the wrinkled flamelets, corrugated flamelets, thin reaction zones, and distributed reaction zones regimes, separated by the lines $\mathrm{Re}_t = 1$, $\mathrm{Ka}_\delta = 1$, $\mathrm{Ka}_\delta = 100$, and $\mathrm{Da}_\delta = 1$.}
+    \label{fig:peters-diagram}
 \end{figure}
 
 
-\paragraph{Wrinkled flames} Have turbulence with smaller timescales than flame speeds, therefore flame movvmen is dominated by avg speed.
+\paragraph{Wrinkled flamelets} have turbulent velocity fluctuations smaller than the flame speed, so the flame's movement is dominated by the average flow speed.
 
-\paragraph{Corugated flames} have influnce by teh turbulent part of the flow, but ka is less then 1. this meens the kolmogorove scale has a specific time larger than he chemical time therfore dose not contribute to mixing.
+\paragraph{Corrugated flames} are influenced by the turbulent part of the flow, but $Ka < 1$. This means the Kolmogorov scale has a timescale larger than the chemical timescale, and therefore does not contribute to mixing.
 
-\paragraph{Thin reaction zone} Has ka >1, meaning the kolmogorov scale influnces mixing. Nut Da>1 says large scales do not influcne mixing
+\paragraph{Thin reaction zones} have $Ka > 1$, meaning the Kolmogorov scale influences mixing, but $Da > 1$, meaning the large scales do not influence mixing.
 
- independent of Da, for Ka large enouth ( around 100 for methane) the kolmogorove scalenot only influences mixing but also mixes after the radical seperation, in teh thin reaction zone. 
+Independent of $Da$, for $Ka$ large enough (around 100 for methane), the Kolmogorov scale not only influences mixing but also mixes the flame after the radical separation, within the thin reaction zone.
 
- \paragraph{Distributed reaction zones} Happen dor Da>1. At this stage even large scales influnce mixing. 
+\paragraph{Distributed reaction zones} occur for $Da > 1$. At this stage, even the large scales influence mixing.
 
 \todo{Develop on the full lecture8 including peters diagram. Explicitly explaining all zones, axis, non dimentional numbers.}
 
