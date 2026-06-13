@@ -13,7 +13,7 @@ For turbulent flow, the large timescales relate to the chemical timescale throug
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{exam-questions/03-turbulent-transport/Re.png}
+    \includegraphics[width=0.3\linewidth]{exam-questions/03-turbulent-transport/Re.png}
     \caption{Definition of the turbulent Reynolds number $\mathrm{Re}_t$, relating the integral length scale $l_t$ and velocity fluctuation $u'(l_t)$ to the kinematic viscosity $\nu$.}
     \label{fig:re-number}
 \end{figure}
@@ -22,7 +22,7 @@ The large and chemical timescales are related through the Damk\"ohler number.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{exam-questions/03-turbulent-transport/Da.png}
+    \includegraphics[width=0.3\linewidth]{exam-questions/03-turbulent-transport/Da.png}
     \caption{Definition of the Damk\"ohler number $\mathrm{Da}$ as the ratio of the integral (large-scale) timescale $t_t$ to the chemical timescale $t_{chem}$.}
     \label{fig:damkohler-number}
 \end{figure}
@@ -31,7 +31,7 @@ The turbulent (Kolmogorov) and chemical timescales are related through the Karlo
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{exam-questions/03-turbulent-transport/karl.png}
+    \includegraphics[width=0.3\linewidth]{exam-questions/03-turbulent-transport/karl.png}
     \caption{Definition of the Karlovitz number $\mathrm{Ka}$ as the ratio of the chemical timescale $t_{chem}$ to the Kolmogorov timescale $t_k$.}
     \label{fig:karlovitz-number}
 \end{figure}
@@ -59,9 +59,8 @@ The x-axis is the ratio of the integral length scale to the unstretched flame th
 
 Independent of $Da$, for $Ka$ large enough (around 100 for methane), the Kolmogorov scale not only influences mixing but also mixes the flame after the radical separation, within the thin reaction zone.
 
-\paragraph{Distributed reaction zones} occur for $Da > 1$. At this stage, even the large scales influence mixing.
+\paragraph{Distributed reaction zones} occur for $Da < 1$. At this stage, even the large scales influence mixing. the timescale of the large scales is inferior to the chemical timescale
 
-\todo{Develop on the full lecture8 including peters diagram. Explicitly explaining all zones, axis, non dimentional numbers.}
 
 {\color{istblue}
 \paragraph{Claude answer}
@@ -80,16 +79,46 @@ These ratios organise the \textbf{premixed turbulent combustion regimes} in the 
 
 {\color{gray}\footnotesize [Claude context: check Lecture 10 (overview of combustion models -- PDF methods, flamelet models, mean reaction rates); Warnatz Ch.13; combustion\_modeling.pdf (Veynante \& Vervisch review, used as supplementary, verify against Warnatz)]}
 
+
+
 \paragraph{Answer}
 
+The problem is to close the reaction rate term on the mass reaction equation. ($\overline{\dot{ \omega}}$). Modeling this reaction rate is done in several ways.
+
+\textbf{Eddy breakup}
+
+Ideal that mixed mean burned. Assumes reaction is much faster than mixing.
+
+( put equation of slide 10 eddy breakup here)
+
+\textbf{PDF or FDF}
+
+A joint Prob function is made with dependency on x and t. With this probavility, integrating w time prob gives an average reaction rate. PDFs are obtained by intoducing extra particles in the stream
 
 
+
+
+
+\textbf{Flamelet models}
+
+Artificialy increase flame thikness so arenius can be used. 
+
+Turbulence does not alter falme ineer structure. Single equation with trasport varialbe is used. 
+It is slove ss a 1D laminar flame 
+
+
+
+
+\textbf{For Cluade: After this mark also make a description of otehr modeling aproaches. General, for non premixed and premixed falmes. \\
+Also explain the long equation on lecture 10 slide Transported PDF methods described as exact transport equation (end of slide)}
 
 \subsubsection{Explain the main closure problems that arise when averaging the transport equations for an exothermic reacting flow.}
 
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (Turbulent Reacting Flows); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
 
 \paragraph{Answer}
+
+Prrvius awnser, it is the average of teh reaction rate $\omega$ on the mass equation. The exponential tems makes variations increasingly inportant. 
 
 
 
@@ -98,7 +127,9 @@ These ratios organise the \textbf{premixed turbulent combustion regimes} in the 
 
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (Favre/density-weighted averaging); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
 
-\paragraph{Answer}
+\paragraph{Answer} REpresented with a \~, it is an average weighted by density.  It consders density as a weight on everraging rho times quantity averaged / rho averaged. More inportant for premx bc of que quick density changes ( not sue about this last statment)
+
+
 
 
 
@@ -107,7 +138,9 @@ These ratios organise the \textbf{premixed turbulent combustion regimes} in the 
 
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (LES, subgrid closures); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
 
-\paragraph{Answer}
+\paragraph{Answer} LES dully calcualtes the larger scales but models the dissipation ( smaller scales). Sub grid models simulate the efect the non resolved scales have on the lrge scales. 
+
+
 
 
 
