@@ -59,7 +59,7 @@ The x-axis is the ratio of the integral length scale to the unstretched flame th
 
 Independent of $Da$, for $Ka$ large enough (around 100 for methane), the Kolmogorov scale not only influences mixing but also mixes the flame after the radical separation, within the thin reaction zone.
 
-\paragraph{Distributed reaction zones} occur for $Da < 1$. At this stage, even the large scales influence mixing. the timescale of the large scales is inferior to the chemical timescale
+\paragraph{Distributed reaction zones} occur for $Da < 1$. At this stage, even the large scales influence mixing. The timescale of the large scales is smaller than the chemical timescale.
 
 
 {\color{istblue}
@@ -83,17 +83,17 @@ These ratios organise the \textbf{premixed turbulent combustion regimes} in the 
 
 \paragraph{Answer}
 
-The problem is to close the reaction rate term on the mass reaction equation. ($\overline{\dot{ \omega}}$). Modeling this reaction rate is done in several ways.
+The problem is to close the reaction rate term in the mass (species) reaction equation ($\overline{\dot{\omega}}$). Modeling this reaction rate can be done in several ways.
 
 \textbf{Eddy breakup}
 
-Ideal that mixed mean burned. Assumes reaction is much faster than mixing.
+Idea: as soon as reactants are mixed, they are burned. Assumes reaction is much faster than mixing.
 
 ( put equation of slide 10 eddy breakup here)
 
 \textbf{PDF or FDF}
 
-A joint Prob function is made with dependency on x and t. With this probavility, integrating w time prob gives an average reaction rate. PDFs are obtained by intoducing extra particles in the stream
+A joint probability function is constructed with dependence on $x$ and $t$. Using this probability, integrating over time gives an average reaction rate. PDFs are obtained by introducing extra particles into the flow.
 
 
 
@@ -101,10 +101,10 @@ A joint Prob function is made with dependency on x and t. With this probavility,
 
 \textbf{Flamelet models}
 
-Artificialy increase flame thikness so arenius can be used. 
+Artificially increase the flame thickness so that Arrhenius kinetics can be used.
 
-Turbulence does not alter falme ineer structure. Single equation with trasport varialbe is used. 
-It is slove ss a 1D laminar flame 
+Turbulence does not alter the flame's inner structure. A single equation with a transport variable is used.
+It is solved as a 1D laminar flame.
 
 
 
@@ -118,7 +118,7 @@ Also explain the long equation on lecture 10 slide Transported PDF methods descr
 
 \paragraph{Answer}
 
-Prrvius awnser, it is the average of teh reaction rate $\omega$ on the mass equation. The exponential tems makes variations increasingly inportant. 
+Previous answer: it is the average of the reaction rate $\omega$ in the mass equation. The exponential terms make variations increasingly important.
 
 
 
@@ -127,7 +127,7 @@ Prrvius awnser, it is the average of teh reaction rate $\omega$ on the mass equa
 
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (Favre/density-weighted averaging); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
 
-\paragraph{Answer} REpresented with a \~, it is an average weighted by density.  It consders density as a weight on everraging rho times quantity averaged / rho averaged. More inportant for premx bc of que quick density changes ( not sue about this last statment)
+\paragraph{Answer} Represented with a tilde ($\sim$), it is an average weighted by density. It considers density as a weight, averaging $\rho$ times the quantity divided by averaged $\rho$. More important for premixed flames because of the rapid density changes (not sure about this last statement).
 
 
 
@@ -138,7 +138,7 @@ Prrvius awnser, it is the average of teh reaction rate $\omega$ on the mass equa
 
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (LES, subgrid closures); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
 
-\paragraph{Answer} LES dully calcualtes the larger scales but models the dissipation ( smaller scales). Sub grid models simulate the efect the non resolved scales have on the lrge scales. 
+\paragraph{Answer} LES directly calculates the larger scales but models the dissipation (smaller scales). Subgrid models simulate the effect the unresolved scales have on the large scales.
 
 
 
