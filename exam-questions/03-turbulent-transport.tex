@@ -78,6 +78,8 @@ These ratios organise the \textbf{premixed turbulent combustion regimes} in the 
 
 \subsubsection{Give a short description of the three main approaches to the computation of turbulent flames and specify their advantages and drawbacks.}
 
+\label{Q:3aproax}
+
 {\color{gray}\footnotesize [Claude context: check Lecture 10 (overview of combustion models -- PDF methods, flamelet models, mean reaction rates); Warnatz Ch.13; combustion\_modeling.pdf (Veynante \& Vervisch review, used as supplementary, verify against Warnatz)]}
 
 
@@ -110,8 +112,6 @@ It is solved as a 1D laminar flame.
 
 
 
-\textbf{For Cluade: After this mark also make a description of otehr modeling aproaches. General, for non premixed and premixed falmes. \\
-Also explain the long equation on lecture 10 slide Transported PDF methods described as exact transport equation (end of slide)}
 
 {\color{istblue}
 \paragraph{Claude answer}
@@ -135,7 +135,7 @@ Reading it term by term: the first two terms are the unsteady evolution of the P
 \subsubsection{Explain the main closure problems that arise when averaging the transport equations for an exothermic reacting flow.}
 
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (Turbulent Reacting Flows); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
-
+\label{Q:clouseure}
 \paragraph{Answer}
 
 Previous answer: it is the average of the reaction rate $\omega$ in the mass equation. The exponential terms make variations increasingly important.
@@ -148,6 +148,8 @@ When the instantaneous balance equations are averaged (RANS) or filtered (LES), 
 \subsubsection{Density-weighted averaging, also called Favre averaging, is an alternative way of averaging leading to a specific form of the averaged transport equations. What is Favre averaging? What is this specific form? Can it be expected to be a good approach for premixed flames / for non-premixed flames?}
 
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (Favre/density-weighted averaging); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
+
+\label{Q:density}
 
 \paragraph{Answer} Represented with a tilde ($\sim$), it is an average weighted by density. It considers density as a weight, averaging $\rho$ times the quantity divided by averaged $\rho$. More important for premixed flames because of the rapid density changes (not sure about this last statement).
 
@@ -169,6 +171,9 @@ i.e.\ formally identical to the laminar equations except for the new unclosed te
 \subsubsection{Explain what is meant by Large Eddy Simulation of turbulent flow. Also discuss the need for subgrid models of combustion processes in the context of LES.}
 
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (LES, subgrid closures); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
+
+
+\label{Q:LES}
 
 \paragraph{Answer} LES directly calculates the larger scales but models the dissipation (smaller scales). Subgrid models simulate the effect the unresolved scales have on the large scales.
 
