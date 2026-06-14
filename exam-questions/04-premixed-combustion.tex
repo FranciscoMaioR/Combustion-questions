@@ -73,6 +73,27 @@ The \textbf{turbulent flame speed} (turbulent burning velocity) $s_T$ is defined
 
 \paragraph{Answer} idk
 
+{\color{istblue}
+\paragraph{Claude answer}
+\textbf{Turbulent flame-speed closure} (often \emph{flame-speed closure}, or the \textbf{Turbulent Flame Closure, TFC} model of Zimont) is a modelling strategy for turbulent \emph{premixed} combustion in which the mean/filtered progress-variable equation is closed \textbf{not} by modelling the (stiff, highly non-linear) mean reaction rate $\overline{\dot\omega}_c$ directly, but by replacing the combined reaction-plus-diffusion term with a single \textbf{kinematic propagation term} that advances the flame brush at a prescribed turbulent flame speed~\cite{lecture10,zimont2000tfc,veynante2002turbulent}. The closure problem is thereby shifted from "what is $\overline{\dot\omega}_c$?" to "what is the turbulent burning velocity?", which is a much more intuitive and better-correlated quantity (see the laminar/turbulent flame-speed question above).
+
+The form of the propagation equation depends on the computational level~\cite{lecture10}. In \textbf{DNS} the instantaneous iso-surface propagates at the local displacement speed and no model is needed:
+\begin{equation*}
+\rho\left(\frac{\partial}{\partial t} + \vec v\cdot\nabla\right)c = \rho_u\, s_{dns}\,|\nabla c|.
+\end{equation*}
+In \textbf{RANS} the \emph{mean} flame brush propagates, relative to the mean reactants, at the \textbf{turbulent flame speed} $s_T$:
+\begin{equation*}
+\rho\left(\frac{\partial}{\partial t} + \tilde{\vec v}\cdot\nabla\right)\tilde c = \rho_u\, s_T\,|\nabla \tilde c| + \dots
+\end{equation*}
+In \textbf{LES} the \emph{resolved} (filtered) front propagates, relative to the resolved reactants, at a filter-dependent subgrid flame speed $s_{t,\Delta}$:
+\begin{equation*}
+\rho\left(\frac{\partial}{\partial t} + \tilde{\vec v}\cdot\nabla\right)\tilde c = \rho_u\, s_{t,\Delta}\,|\nabla \tilde c| + \dots
+\end{equation*}
+The \textbf{closure} is then exactly the prescription of that flame speed: in RANS $s_T$ is supplied through empirical \textbf{correlations} of the form $s_T/s_L = b_1 + b_2(u'/s_L)^{b_3}(l_t/\delta)^{b_4}\mathrm{Le}^{b_5}$~\cite{ciccarelli2008flame,warnatz2006combustion}; in LES $s_{t,\Delta}$ is part of the \textbf{subgrid model}. Because progressively more of the flame wrinkling is unresolved (LES) or averaged away (RANS), the three speeds are ordered $s_{dns} < s_{t,\Delta} < s_T$~\cite{lecture10}. The formulation is internally consistent: as the LES filter shrinks the subgrid wrinkling vanishes and $\lim_{\Delta\to 0} s_{t,\Delta} = s_{dns}$ (LES $\to$ DNS), while grid refinement should give a grid-independent $s_T$, $\lim_{\Delta_{grid}\to 0} s_T = s_{T,\text{grid-indep}}$~\cite{lecture10}. A good subgrid model for $s_{t,\Delta}$ would, in principle, allow $s_T$ to be computed rather than correlated.
+
+\textbf{Advantages:} it sidesteps the awkward turbulence--chemistry-interaction closure of $\overline{\dot\omega}_c$, is computationally cheap and numerically robust, and rests on the well-studied, intuitive concept of a turbulent burning velocity. \textbf{Drawbacks:} it presupposes the \textbf{flamelet picture} (a thin, well-defined propagating front, i.e.\ the corrugated/thin-reaction-zone regimes), the $s_T$ correlations are \textbf{regime- and configuration-dependent} and were typically fitted only up to $s_T \lesssim 10\,s_L$, and the approach does not naturally capture slow-chemistry effects (\ce{NOx}, CO), strong unsteadiness, or local extinction; it also requires the flame-brush thickness (the magnitude of $|\nabla\tilde c|$) to be controlled, often via an auxiliary diffusion/source balance~\cite{veynante2002turbulent,peters2000turbulent}.
+}
+
 
 
 
