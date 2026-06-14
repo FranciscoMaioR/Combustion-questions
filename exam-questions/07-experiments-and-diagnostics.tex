@@ -6,6 +6,11 @@
 
 \paragraph{Answer} Standardized and well-studied flames for model validation.
 
+{\color{istblue}
+\paragraph{Claude answer}
+\textbf{Canonical flames} are simple, geometrically well-defined and highly \textbf{reproducible} laboratory flames --- the Bunsen and flat (McKenna) premixed flames, the counterflow and Wolfhard--Parker diffusion flames, and benchmark turbulent flames such as the piloted Sandia jets --- that act as the controlled ``building blocks'' of combustion research~\cite{lecture5,warnatz2006combustion,mishra2014experimental}. Their roles are: \textbf{(1) Isolating fundamental physics:} their simple (often 1-D or quasi-1-D) geometry and well-characterised boundary conditions let one disentangle chemistry, molecular transport and turbulence, which are hopelessly coupled in a real device --- a $1$\,kW Bunsen flame is studied to understand a $100$\,MW gas-turbine combustor~\cite{lecture5}. \textbf{(2) Measuring fundamental properties:} laminar burning velocity, extinction strain rate, ignition delay, and detailed species/temperature profiles are extracted from canonical flames and used to develop and test \textbf{chemical-kinetic mechanisms}~\cite{warnatz2006combustion,mishra2014experimental}. \textbf{(3) Model validation:} because their boundary conditions are fully specified, they provide the \emph{ground-truth} reference data against which RANS/LES combustion models are validated, in a hierarchy that proceeds from unit problems up to full devices --- the role embodied by the TNF-workshop Sandia D--E--F series~\cite{barlowfrank1998sandia,lecture10}. \textbf{(4) Diagnostic calibration:} the flat (McKenna) flame is the \emph{standard calibration source} for optical diagnostics because it produces a steady, repeatable, near-1-D flame~\cite{lecture5}. In short, canonical flames are the common reference point linking experiments, numerical models and physical understanding --- exactly the ``standardised, well-studied flames for model validation'' of the draft, plus their role as sources of fundamental data and diagnostic calibration.
+}
+
 
 
 
@@ -15,6 +20,15 @@
 
 \paragraph{Answer} \todo{for Claude: answer this question even if I didn't answer it}
 
+{\color{istblue}
+\paragraph{Claude answer}
+\textbf{Bunsen burner (laminar premixed flame).} A vertical tube (barrel) on a base: fuel enters at the base as a jet through an \textbf{orifice}, and the jet \textbf{entrains ambient air} through adjustable air ports (a collar regulates the opening); the mixture homogenises in the long barrel (mixing chamber) and the resulting premixed gas burns as a \textbf{conical flame stabilised on the burner rim}~\cite{lecture5,mishra2014experimental}. Working principle: a premixed conical front sits where the flow normal velocity balances the burning velocity, so the cone half-angle $\alpha$ encodes the laminar flame speed, $S_L = v_u \sin\alpha$ (kinematic balance). Because the entrained air is usually sub-stoichiometric, a Bunsen flame is often \emph{partially} premixed, with a secondary diffusion flame around the rich inner cone for $\phi>1$. \textbf{Used to:} generate laminar premixed flames, measure $S_L$ (cone-angle / area method), and demonstrate flashback and blow-off~\cite{lecture5}.
+
+\textbf{McKenna / flat-flame burner (laminar premixed, incl.\ rich).} A \textbf{water-cooled sintered (porous bronze) plug} through which the premixed gas flows uniformly, usually surrounded by a co-flowing inert/air \textbf{shroud}; this produces a \textbf{flat, one-dimensional, burner-stabilised} laminar premixed flame sitting just above the plate~\cite{lecture5}. Working principle: the uniform exit velocity $U = Q/A$ gives a 1-D flame; heat loss to the cooled plate anchors it (a burner-stabilised flame slightly below the adiabatic $S_L$). Its great virtue is \textbf{repeatability}, which makes it the \emph{standard calibration source} for diagnostics; rich operation is used to study soot and rich chemistry. \textbf{Used to:} provide a 1-D reference flame for diagnostic calibration and detailed species/temperature-profile and burning-velocity studies~\cite{lecture5,warnatz2006combustion}.
+
+\textbf{Wolfhard--Parker burner (laminar diffusion flame).} A rectangular \textbf{slot} burner: a central fuel slot is flanked by two parallel oxidiser (air) slots flowing co-currently, producing a steady, nearly \textbf{two-dimensional (quasi-planar) laminar diffusion flame} that is uniform along the slot, giving excellent optical access for line-of-sight and planar diagnostics~\cite{warnatz2006combustion,glassman2014combustion}. Working principle: fuel and oxidiser remain \textbf{unmixed} until they interdiffuse, and reaction is confined to the stoichiometric surface --- there is no premixing and no propagation speed, the flame being \emph{mixing-controlled}. \textbf{Used to:} study laminar diffusion-flame structure, soot formation, and species/temperature fields in non-premixed combustion. \textbf{In general}, these standardised burners deliver controlled, reproducible flames for measuring fundamental data, validating kinetic mechanisms and combustion models, calibrating diagnostics, and probing flame structure and stability~\cite{lecture5,mishra2014experimental,warnatz2006combustion}.
+}
+
 
 
 
@@ -23,6 +37,11 @@
 {\color{gray}\footnotesize [Claude context: check Lecture 6 (Experimental Combustion 2 -- diagnostics) and Lecture 7 (Laser Diagnostics); Maas notes Ch.2 / Warnatz Ch.2]}
 
 \paragraph{Answer} Passive, non-intrusive, real-time (time resolved).
+
+{\color{istblue}
+\paragraph{Claude answer}
+The three main advantages are: \textbf{(1) Non-intrusive (non-perturbing):} light probes the flame without inserting a physical sensor, so the flow and flame are \emph{not disturbed} and there is no probe-survivability or catalytic-interference problem in the hot, reactive, often high-pressure environment --- in contrast to thermocouples or suction probes, which perturb the flow, conduct heat, can catalyse reactions and may not survive~\cite{lecture7,crosley1983}. \textbf{(2) High temporal resolution / time resolution:} pulsed lasers with nanosecond pulses effectively \emph{freeze} turbulent fluctuations, and high repetition rates yield time-resolved sequences, which is essential to capture the fast, unsteady dynamics of turbulent combustion~\cite{lecture7}. \textbf{(3) High spatial resolution, including imaging:} focused beams and laser sheets give point, line, planar (2-D, e.g.\ PLIF of OH marking the flame front) and even volumetric measurements at sub-millimetre resolution, mapping the spatial structure of the flame~\cite{lecture7}. A closely related strength is \textbf{species/state selectivity}: because the interaction is resonant with specific quantised transitions, a technique can be tuned to a chosen species and made quantitative for concentration or temperature. These confirm and sharpen the draft's ``passive, non-intrusive, real-time'': the defining advantage is being non-intrusive, combined with high temporal and high spatial (imaging) resolution~\cite{lecture7,warnatz2006combustion}.
+}
 
 
 
@@ -40,6 +59,11 @@ Time resolved: the sampling rate of the sensor is faster than the phenomena that
 
 Spectrally resolved: measurements are divided and identified in the spectrum.
 
+{\color{istblue}
+\paragraph{Claude answer}
+These three describe the ability to \emph{distinguish} (resolution) and to \emph{select/steer} (control) a measurement along the time, space and wavelength axes; the draft's definitions are correct and are formalised below~\cite{lecture7}. \textbf{Temporal resolution} is the smallest time interval the measurement can separate, set by the laser pulse duration and the detector gating/framing rate: it must be \emph{shorter than the timescale of the phenomenon} (e.g.\ a $\sim$ns laser pulse freezes turbulent motion, and the repetition rate fixes how rapidly successive snapshots are taken). \textbf{Temporal control} is the ability to time, trigger and gate the acquisition (pulse timing, ICCD gating) so as to capture a chosen instant or phase. \textbf{Spatial resolution} is the smallest spatial scale resolved, set by the probe/measurement-volume size, the collection optics and the laser-sheet thickness; it must be \emph{smaller than the structure of interest} (e.g.\ resolving the $\sim$0.1--1\,mm flame thickness). \textbf{Spatial control} is shaping \emph{where} one measures --- point, line or planar sheet --- via focusing and sheet-forming optics. \textbf{Spectral resolution} is the ability to distinguish wavelengths/frequencies, set by the spectrometer or filter bandwidth and the laser linewidth; it lets one separate the spectral lines of different species and resolve a lineshape (from which temperature follows). \textbf{Spectral control} is tuning the laser wavelength and linewidth onto a specific molecular transition (tunable diode/dye lasers). These map directly onto the defining properties of laser light --- \textbf{monochromaticity} $\to$ spectral, \textbf{pulsing/repetition} $\to$ temporal, and \textbf{directionality/focusability} $\to$ spatial --- and a good technique resolves and controls all three so as to isolate the species, location and instant of interest~\cite{lecture7,crosley1983}.
+}
+
 
 
 
@@ -50,6 +74,15 @@ Spectrally resolved: measurements are divided and identified in the spectrum.
 \paragraph{Answer} Describes the probability of a particle being at a certain energy state.
 
 Used to predict particles affected by a laser at a given wavelength.
+
+{\color{istblue}
+\paragraph{Claude answer}
+The \textbf{Boltzmann distribution} gives, for a system in thermal equilibrium at temperature $T$, the \emph{population fraction} of molecules residing in a given internal (electronic/vibrational/rotational) energy state. For a level $i$ of energy $E_i$ and degeneracy (statistical weight) $g_i$,
+\begin{equation*}
+\frac{N_i}{N} = \frac{g_i\, \exp\!\big(-E_i/k_B T\big)}{Q(T)}, \qquad Q(T) = \sum_j g_j\,\exp\!\big(-E_j/k_B T\big),
+\end{equation*}
+where $k_B$ is the Boltzmann constant and $Q(T)$ the partition function~\cite{lecture7,warnatz2006combustion}. The key point is that the \emph{relative} populations of the levels depend only on $T$. This underlies the draft's two observations: it predicts which fraction of molecules sit in the lower state that a laser of a given wavelength can excite (the Boltzmann fraction $f(T)$ that appears, e.g., as a multiplicative factor in the LIF signal), and --- read in reverse --- it enables \textbf{thermometry}, because measuring relative level populations yields $T$~\cite{lecture7,crosley1983}. Practical implementations: \textbf{(i) two-line thermometry} --- probe two transitions originating from lower states of different energy $E_1,E_2$; the ratio of the two (LIF or absorption) signals depends only on $T$, $S_1/S_2 \propto \exp[-(E_1-E_2)/k_B T]$, giving $T$ without an absolute calibration; \textbf{(ii) the Boltzmann plot} --- measure many lines and fit $\ln(\text{signal}/g_i\,\cdots)$ versus $E_i$, whose slope is $-1/k_B T$; and \textbf{(iii) spectral-fitting} techniques (rotational Raman, CARS, Rayleigh) where the measured spectral shape is set by the Boltzmann populations and is fitted for $T$~\cite{lecture7,warnatz2006combustion,glassman2014combustion}. Equilibrium among the probed levels is the underlying assumption.
+}
 
 
 
@@ -64,6 +97,11 @@ Used to predict particles affected by a laser at a given wavelength.
 
 Optical diagnostics, especially spectroscopy. Needed to estimate products of combustion.
 
+{\color{istblue}
+\paragraph{Claude answer}
+Species are detected and identified through their \textbf{spectroscopic fingerprints}: each species absorbs, emits or scatters light at characteristic wavelengths fixed by its quantised energy levels, so wavelength-resolved light--matter interaction identifies the species, and the signal magnitude gives its concentration~\cite{lecture7,warnatz2006combustion}. The main optical techniques are: \textbf{(1) absorption (e.g.\ TDLAS)} --- tune a laser to a species line and measure the attenuation $I/I_0 = \exp(-n\,\sigma_\nu L)$ (Beer--Lambert), giving the line-of-sight number density $n$ (and, via lineshape, temperature)~\cite{lecture7,hitran}; \textbf{(2) laser-induced fluorescence (LIF/PLIF)} --- excite a species' electronic transition and detect the fluorescence; it is species-selective, spatially resolved/imaging and very sensitive (background-free), making it ideal for minor radicals such as OH, CH and NO~\cite{lecture7,crosley1983}; \textbf{(3) Raman scattering} --- inelastic, wavelength-shifted scattering that gives \emph{major}-species concentrations (and temperature) simultaneously; \textbf{(4) chemiluminescence} --- the passive natural emission of excited radicals (OH$^*$, CH$^*$) that marks the reaction zone. \textbf{Why it is needed:} to quantify combustion \emph{products and intermediates} --- confirming and extending the draft. This is required to measure \textbf{emissions} (\ce{NOx}, CO, unburnt hydrocarbons, soot precursors), to locate and characterise the \textbf{reaction zone} (OH/CH mark the flame front), to determine the local equivalence ratio / mixture fraction and the \textbf{completeness of combustion}, and above all to provide the species data needed to \textbf{develop and validate chemical-kinetic mechanisms} and combustion models~\cite{lecture7,warnatz2006combustion,crosley1983}.
+}
+
 
 
 
@@ -75,6 +113,11 @@ Optical diagnostics, especially spectroscopy. Needed to estimate products of com
 
 Absorption, emission, black-body radiation
 
+{\color{istblue}
+\paragraph{Claude answer}
+When light meets matter, photons are \emph{destroyed}, \emph{created} or \emph{re-routed}, and the resulting energy exchange is what diagnostics exploit~\cite{lecture7}. Three diagnostically important interactions (building on the draft's ``absorption, emission'') are: \textbf{(1) (Stimulated) absorption} --- when a photon's energy matches an energy-level gap, $\Delta E = h\nu$, it is absorbed and the molecule is promoted to an excited state. This is the basis of \textbf{absorption spectroscopy} (TDLAS), quantified by Beer--Lambert, $I/I_0 = \exp(-n\,\sigma_\nu L)$, and used to measure concentration and temperature~\cite{lecture7,hitran}. \textbf{(2) Emission --- in particular laser-induced fluorescence:} a laser excites the species to an upper state, which then \textbf{spontaneously emits} a photon (random direction) at a characteristic wavelength as it decays; this is the basis of \textbf{LIF/PLIF} for species imaging~\cite{lecture7,crosley1983}. (Other emission interactions are thermal/black-body radiation, as in the draft, and \textbf{chemiluminescence}, the emission from chemically-excited radicals such as OH$^*$.) \textbf{(3) Scattering} --- photons are ``re-routed'' without (or with) an energy change: \textbf{elastic} scattering is \emph{Rayleigh} for molecules ($d \ll \lambda$, no wavelength shift $\to$ density/temperature) and \emph{Mie} for particles ($d \sim \lambda$ $\to$ PIV, soot); \textbf{inelastic Raman} scattering is wavelength-shifted by the molecule's rovibrational energy ($h\nu_0 \pm h\nu_m$, Stokes/anti-Stokes) and gives major-species concentrations and temperature~\cite{lecture7}. At the most fundamental level these all reduce to the three photon--electron mechanisms --- \textbf{stimulated absorption}, \textbf{spontaneous emission} and \textbf{stimulated emission} (the last being the basis of the laser itself)~\cite{lecture7}.
+}
+
 
 
 
@@ -83,6 +126,17 @@ Absorption, emission, black-body radiation
 {\color{gray}\footnotesize [Claude context: check Lecture 5 (measuring laminar flame speed with Bunsen burner); Maas notes Ch.2 / Warnatz Ch.2 (Experimental Investigation of Flames); Maas notes Ch.7 / Warnatz Ch.8.3 (flame velocities)]}
 
 \paragraph{Answer} CH4. Laminar unstretched, better with a flat burner. A calorimetric bomb is also reported as a good method.
+
+{\color{istblue}
+\paragraph{Claude answer}
+\textbf{Goal.} The laminar burning velocity $S_L$ is the velocity of the unburnt mixture normal to a planar, adiabatic, \emph{unstretched} flame front; it is a physico-chemical property of the \ce{CH4}/air mixture, peaking near $\phi \approx 1.05$ at $S_L \approx 0.38$\,m/s at atmospheric conditions~\cite{lecture5,warnatz2006combustion}. The experiment must therefore deliver a well-defined premixed mixture and infer $S_L$ from the flame while correcting for the things that bias it (stretch, curvature, heat loss). The methods fall into two families~\cite{lecture5,mishra2014experimental}.
+
+\textbf{Stationary methods.} \emph{(a) Bunsen burner} --- premix \ce{CH4}/air at a set $\phi$, form a conical flame, and obtain $S_L$ from the cone half-angle, $S_L = v_u \sin\alpha$, or from the area method $S_L = v_u A_B/A_f$~\cite{lecture5,halpern1958measurement}. It is simple but biased by stretch/curvature at the tip and heat loss/quenching at the rim. \emph{(b) Flat-flame (McKenna) / heat-flux burner} --- establish a genuinely \textbf{1-D flat flame} on a cooled porous plate with uniform exit velocity $U = Q/A$; in the \textbf{heat-flux method} one finds the unburnt flow rate at which the net heat loss to the burner is zero, i.e.\ the flame is \emph{adiabatic and unstretched}, which directly yields the unstretched $S_L$. This is the most accurate, stretch-free approach --- confirming the draft's preference for a flat burner~\cite{lecture5,warnatz2006combustion}.
+
+\textbf{Propagation methods.} \emph{(c) Constant-volume combustion bomb} --- ignite the quiescent \ce{CH4}/air mixture at the centre of a spherical vessel and track the expanding flame radius (schlieren) and/or the pressure rise; the \emph{stretched} flame speed is measured over a range of stretch and \textbf{extrapolated to zero stretch} (via the Markstein length) to recover the unstretched $S_L$ --- this also gives the Markstein length and grants access to elevated $p,T$, which is the draft's ``combustion bomb''~\cite{lecture5,mishra2014experimental}. \emph{(d) Tube method} is a cruder propagation variant.
+
+\textbf{Recommended procedure.} Meter \ce{CH4} and air with mass-flow controllers to set $\phi$ accurately at known $T,p$; use the \textbf{heat-flux flat-flame burner} (or a spherical bomb) to obtain the stretch-free $S_L$; image the front (OH$^*$ chemiluminescence, schlieren or OH-PLIF) to define it; repeat across $\phi$ to map $S_L(\phi)$ and report with quantified uncertainty, comparing against established \ce{CH4} data~\cite{dirrenberger2011methane_Ch4_flame_speed,warnatz2006combustion}. The TU Delft laboratory exercise does exactly this kind of measurement (laminar flame speed and emission spectra in laminar Bunsen flames)~\cite{AE4262_LabExercise2026}.
+}
 
 
 
