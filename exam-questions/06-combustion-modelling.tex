@@ -6,6 +6,11 @@
 
 \paragraph{Answer}  same as \ref{Q:3aproax}
 
+{\color{istblue}
+\paragraph{Claude answer}
+This is the Combustion-Modelling-chapter restatement of the question answered in full under Turbulent Transport (Sec.~\ref{Q:3aproax}); that answer should be consulted for the detail. In brief, the \textbf{three main approaches} differ by how much of the turbulent spectrum is \emph{resolved} versus \emph{modelled}~\cite{lecture10,veynante2002turbulent,pope2000turbulent}: \textbf{RANS} (cheapest, models the whole spectrum, only the mean field; struggles with unsteadiness and needs full turbulence--chemistry-interaction closure), \textbf{LES} (resolves the energy-containing eddies, models the subgrid scales; much better for mixing-controlled and unsteady combustion but more expensive, and combustion still lives at subgrid scale), and \textbf{DNS} (resolves all scales, model-free and the reference for validation, but cost $\sim\mathrm{Re}_t^{9/4}$ confines it to low Reynolds numbers and simple geometries). The modelling-chapter emphasis is that for RANS and LES a \emph{separate} combustion closure for the mean/filtered reaction rate is required on top of the turbulence treatment --- the subject of the remaining questions in this section.
+}
+
 
 
 \subsubsection{Explain the main closure problems that arise when averaging the transport equations for an exothermic reacting flow.}
@@ -13,6 +18,11 @@
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (Turbulent Reacting Flows); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
 
 \paragraph{Answer} same as \ref{Q:clouseure}
+
+{\color{istblue}
+\paragraph{Claude answer}
+Treated in full under Turbulent Transport (Sec.~\ref{Q:clouseure}); the same closure problems apply verbatim here, so only the headline is repeated. Averaging (RANS) or filtering (LES) the instantaneous balance equations leaves several \textbf{unclosed terms}: the \textbf{Reynolds/Favre stresses} $\overline{\rho}\,\widetilde{u_i''u_j''}$ (turbulent momentum transport), the \textbf{turbulent scalar fluxes} $\overline{\rho}\,\widetilde{u_i''Y_k''}$ and $\overline{\rho}\,\widetilde{u_i''h''}$ (which can be counter-gradient in premixed flames), and --- the one specific to combustion and by far the hardest --- the \textbf{mean reaction rate} $\overline{\dot\omega}_k$, which because of the exponential Arrhenius non-linearity is \emph{not} a function of the mean quantities, $\overline{\dot\omega}_k\neq\dot\omega_k(\tilde Y_k,\tilde T)$~\cite{lecture10,veynante2002turbulent,warnatz2006combustion}. Strong density variation adds the unclosed mean equation of state and the density--velocity correlations that motivate Favre averaging. The combustion models discussed in this section (eddy break-up, flamelet/FGM, transported PDF, $\dots$) are precisely the different strategies for closing $\overline{\dot\omega}_k$.
+}
 
 
 
@@ -23,6 +33,16 @@
 
 \paragraph{Answer} same as \ref{Q:density}
 
+{\color{istblue}
+\paragraph{Claude answer}
+Fully covered under Turbulent Transport (Sec.~\ref{Q:density}), where the premixed/non-premixed applicability is also discussed --- so this question's narrower phrasing is entirely contained there. In short: \textbf{Favre (density-weighted) averaging} is averaging weighted by density, $\tilde Q = \overline{\rho Q}/\bar\rho$, with the decomposition $Q = \tilde Q + Q''$ and $\widetilde{Q''}=0$~\cite{lecture10,veynante2002turbulent,warnatz2006combustion}. \textbf{Specific form:} applied to the variable-density conservation equations it removes the explicit density-fluctuation correlations (e.g.\ $\overline{\rho'u'}$) so that the averaged continuity, momentum and species equations recover the \textbf{compact, quasi-incompressible form}
+\begin{equation*}
+\frac{\partial \bar\rho}{\partial t} + \frac{\partial(\bar\rho\,\tilde u_i)}{\partial x_i} = 0, \qquad
+\frac{\partial \bar\rho\,\tilde Y_k}{\partial t} + \frac{\partial(\bar\rho\,\tilde u_i\tilde Y_k)}{\partial x_i} = \frac{\partial}{\partial x_i}\Big(\overline{J_{k,i}} - \overline{\rho}\,\widetilde{u_i''Y_k''}\Big) + \overline{\dot\omega}_k,
+\end{equation*}
+i.e.\ formally identical to the constant-density equations but with the new unclosed Favre stresses, turbulent scalar fluxes and mean reaction rate. It is the natural averaging for combustion precisely because heat release makes density vary strongly.
+}
+
 
 
 
@@ -31,6 +51,11 @@
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.13 (LES, subgrid closures); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
 
 \paragraph{Answer} same as \ref{Q:LES}
+
+{\color{istblue}
+\paragraph{Claude answer}
+Answered in full under Turbulent Transport (Sec.~\ref{Q:LES}); the same content applies. Briefly: \textbf{LES} applies a spatial low-pass \textbf{filter} of width $\Delta$, computing the large, energy-containing, geometry-dependent eddies directly and modelling only the smaller, more universal \textbf{subgrid} scales (via a Smagorinsky/dynamic subgrid-stress model); as $\Delta\to0$ it tends to DNS, and as $\Delta$ grows it degrades towards RANS~\cite{lecture10,pope2000turbulent,veynante2002turbulent}. A \textbf{subgrid combustion model is indispensable} because the flame and reaction zone ($\sim$0.1--1\,mm) are almost always \emph{thinner than the filter width}, so the chemistry lives entirely at the subgrid scale and the filtered reaction rate again satisfies $\overline{\dot\omega}_k\neq\dot\omega_k(\tilde Y_k,\tilde T)$; the unresolved wrinkling/mixing must therefore be supplied by a subgrid closure (thickened flame, flame-surface-density, flamelet/FGM with a presumed subgrid PDF, or transported FDF/stochastic fields)~\cite{lecture10}.
+}
 
 
 
@@ -41,6 +66,11 @@
 
 \paragraph{Answer} same as \ref{Q:mixfrac}
 
+{\color{istblue}
+\paragraph{Claude answer}
+This is identical to the Non-Premixed-Combustion question answered in full at Sec.~\ref{Q:mixfrac} (definition, the conditions for $Z$ to be useful, and the splitting of the problem into a mixing and a chemistry part, including the Burke--Schumann and Bilger material) --- so only the essentials are restated here. The \textbf{mixture fraction} $Z$ is the mass fraction of material originating from the fuel stream ($Z=1$ fuel inlet, $Z=0$ oxidiser inlet)~\cite{lecture9,warnatz2006combustion}. It is useful provided (i) a \textbf{two-feed} system with well-defined inlets, (ii) \textbf{equal diffusivities} (unity Lewis numbers) so it is a single well-defined conserved scalar, and (iii) for the flamelet picture a thin reaction zone~\cite{lecture9,poinsot2012theoretical}. Its power is that it is a \textbf{conserved scalar} obeying a source-free transport equation, which \textbf{decouples} the problem into a \emph{mixing problem} (solve the turbulent transport of the passive scalar $Z$) and a \emph{chemistry problem} (the thermochemistry as a state relationship $Y_k=Y_k(Z)$ from equilibrium / Burke--Schumann / flamelet) --- the conceptual basis of all mixture-fraction-based non-premixed models in this chapter.
+}
+
 
 
 
@@ -49,6 +79,15 @@
 {\color{gray}\footnotesize [Claude context: check Lecture 10; Warnatz Ch.14 (flamelet model, strained flames); Dynamics of Stretched Flames (Law, 1988, supplementary on flame stretch, verify against Warnatz); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
 
 \paragraph{Answer} same as \ref{Q:stedylaminatflameletmodel}
+
+{\color{istblue}
+\paragraph{Claude answer}
+The \emph{steady laminar flamelet model} is described at Sec.~\ref{Q:stedylaminatflameletmodel}; the \textbf{strained} laminar flamelet is the same family of model viewed through its \textbf{controlling parameter} --- the strain, which enters as the scalar dissipation rate --- so this answer cross-references that one and focuses on the strain angle. \textbf{Structure:} the turbulent non-premixed flame is treated as an ensemble of thin laminar diffusion flamelets each of which is taken to be a \textbf{strained counterflow (opposed-jet) flame}; transforming to mixture-fraction coordinates and neglecting tangential transport gives the flamelet equations
+\begin{equation*}
+0 = \rho\,\frac{\chi}{2}\,\frac{\partial^2 Y_k}{\partial Z^2} + \dot\omega_k, \qquad 0 = \rho\,\frac{\chi}{2}\,\frac{\partial^2 T}{\partial Z^2} + \dot\omega_T,
+\end{equation*}
+in which the \textbf{scalar dissipation rate} $\chi = 2D|\nabla Z|^2$ is the sole imprint of the surrounding flow and is \emph{directly proportional to the imposed strain rate} $a$ (in the counterflow, $\chi_{st}\sim a$)~\cite{lecture9,peters2000turbulent,poinsot2012theoretical}. Thus the flamelet library is generated by solving \textbf{strained counterflow flames over a range of strain rates}, yielding state relationships $Y_k(Z,\chi_{st})$, $T(Z,\chi_{st})$~\cite{lecture9,Law1988}. \textbf{The strain dependence is the whole point:} low strain (low $\chi_{st}$) $\to$ near-equilibrium burning; increasing strain pulls the solution off equilibrium (lower peak $T$, reactant leakage); beyond a critical $\chi_{st,q}$ the flamelet \textbf{extinguishes} (the upper branch of the S-curve). In a turbulent computation these strained-flamelet tables are combined with a presumed joint PDF $\tilde P(Z,\chi)$ (or $\tilde P(Z)$ with a model for $\chi$) to give Favre means. The \emph{steady} qualifier signals the limitation: each flamelet is assumed quasi-steady, so strongly unsteady strain, extinction/re-ignition transients and slow chemistry require \textbf{unsteady} flamelets or extra manifold dimensions~\cite{peters2000turbulent,warnatz2006combustion}.
+}
 
 
 
@@ -64,6 +103,11 @@ For turbulent flow, the equations have to be written in terms of a Favre average
 
 similar to \ref{Q:AssumedPDF}
 
+{\color{istblue}
+\paragraph{Claude answer}
+This overlaps with the presumed-PDF question in the Non-Premixed section (Sec.~\ref{Q:AssumedPDF}); the draft above is correct, and the full treatment is there. To summarise in the modelling-chapter context: once the thermochemistry is known as a state relationship $\phi=\phi(Z)$ from the (flamelet/conserved-scalar) chemistry sub-problem, the \textbf{Favre-mean} of any quantity needs the distribution of the fluctuating mixture fraction, $\tilde\phi = \int_0^1 \phi(Z)\,\tilde P(Z)\,\mathrm{d}Z$~\cite{lecture10,veynante2002turbulent}. Rather than transport the PDF (expensive), the \textbf{presumed-PDF approach} assumes a shape fixed by just the first two moments, the Favre mean $\tilde Z$ and the variance $\widetilde{Z''^2}$ --- canonically the \textbf{$\beta$-function PDF}, which spans the well-mixed (narrow spike) to fully-unmixed (double-delta) limits with only those two parameters~\cite{lecture10,peters2000turbulent}. The mean reactive scalars/reaction rate are then obtained by \textbf{pre-integrating the chemistry table over the PDF}, at the cost of two extra transport equations (for $\tilde Z$ and $\widetilde{Z''^2}$). It is the cheap, widely-used alternative to transported-PDF methods, valid when the state is well parametrised by $Z$ (flamelet hypothesis).
+}
+
 
 
 
@@ -76,6 +120,11 @@ similar to \ref{Q:AssumedPDF}
 In order to calculate the average quantity of a property, including the influence of turbulent flow and variations, a PDF is needed. Such a PDF is defined with an assumed shape, a mean and a variance. Variance is therefore important for the definition of the PDF function.
 
 Scalar dissipation rate quantifies how much turbulence is influencing the mixture fraction gradient in dispersion. It increases the dissipation of the variance of the assumed PDF. Scalar dissipation rate plays a dissipative role in the equation for the variance.
+
+{\color{istblue}
+\paragraph{Claude answer}
+This is the same topic as Sec.~\ref{Q:Variance of mixure fraction} in the Non-Premixed section, and the draft above states the essentials correctly. In summary: the \textbf{variance} $\widetilde{Z''^2}$ is needed because it is the \textbf{second parameter} of the presumed PDF --- it sets the PDF \emph{width}, i.e.\ the degree of unmixedness, and hence directly controls the mean reaction rate (vanishing variance $\Rightarrow$ perfectly mixed $\Rightarrow \tilde\phi=\phi(\tilde Z)$)~\cite{lecture10,veynante2002turbulent,peters2000turbulent}. It is obtained from its own transport equation, in which it is \textbf{produced} by the mean-gradient/turbulent-flux term and \textbf{destroyed} by molecular mixing at the rate of the \textbf{scalar dissipation rate} $\tilde\chi = 2\overline{D\,|\nabla Z''|^2}$. Thus $\chi$ is precisely the \textbf{sink of variance}: a high scalar dissipation rate rapidly smooths fluctuations, narrowing the PDF towards the mixed state, whereas low $\chi$ lets unmixedness persist. In practice the budget is closed algebraically as $\tilde\chi\approx C_\chi(\varepsilon/k)\,\widetilde{Z''^2}$ (linear relaxation), so $\chi$ and the variance are proportional through the turbulent mixing frequency; the same $\chi$ also parametrises departure from equilibrium and extinction in the flamelet equations, coupling the variance budget to the flamelet structure~\cite{lecture10,peters2000turbulent}.
+}
 
 
 
@@ -90,6 +139,13 @@ Experiments can determine the dependent variables.
 
 Validation requires the same conditions.
 
+{\color{istblue}
+\paragraph{Claude answer}
+\textbf{Model development} and \textbf{validation} form a loop. Turbulent-combustion models invariably contain \textbf{closure assumptions and empirical/model constants} (e.g.\ $C_{EBU}$ in eddy break-up, the Smagorinsky/mixing constants, the $b_i$ in flame-speed correlations); these are first calibrated on simple configurations, after which the model must be tested against \emph{independent} reference data to establish its predictive credibility~\cite{lecture10,veynante2002turbulent}. The reference data come from two complementary sources: well-characterised \textbf{experiments} (laser diagnostics on canonical flames) and \textbf{DNS}, which acts as a model-free ``numerical experiment'' giving access to quantities that are hard to measure~\cite{lecture10,pope2000turbulent}. A useful distinction is between \textbf{a priori} testing (extract turbulence fields from DNS/experiment and check whether the closure reproduces the exact unclosed term) and \textbf{a posteriori} testing (run the full model and compare the predicted flow/flame with data); only the latter exposes how modelling errors accumulate and interact.
+
+\textbf{Conditions for good validation}~\cite{lecture10,roekaerts2010jmbc,veynante2002turbulent}: (i) \textbf{well-defined, fully-specified boundary and inlet conditions} (geometry, velocity and turbulence statistics, composition, temperature) so that the simulation solves \emph{the same} problem as the experiment --- this is why standardised benchmark flames are used; (ii) comparison of quantities that genuinely \textbf{stress the model}, ideally ones it was \emph{not} tuned on, and \textbf{not} re-tuning constants per case (blind validation); (iii) \textbf{separation of numerical error from modelling error}, i.e.\ demonstrate grid/statistical convergence before attributing discrepancies to the model; (iv) \textbf{quantified uncertainty} on both the measurement and the simulation, so that ``agreement'' is judged within error bars; and (v) a \textbf{validation hierarchy} --- progress from unit problems and canonical laboratory flames (e.g.\ the TNF-workshop Sandia flames, Sec.~below) up to full devices, since agreement on a complex case is only meaningful if the building blocks are already validated. The communal benchmark approach of the \textbf{Turbulent Non-premixed Flames (TNF) workshop} exemplifies this: shared, well-documented target flames against which competing models are compared on equal footing~\cite{barlowfrank1998sandia,lecture10}.
+}
+
 
 
 
@@ -100,6 +156,11 @@ Validation requires the same conditions.
 \paragraph{Answer}
 
 They are increasing in speed.
+
+{\color{istblue}
+\paragraph{Claude answer}
+The \textbf{Sandia Flames D, E and F} are a celebrated series of \textbf{piloted turbulent non-premixed (partially premixed) jet flames} measured by Barlow and Frank at Sandia, and are among the standard benchmark targets of the \textbf{TNF (Turbulent Non-premixed Flames) workshop}~\cite{barlowfrank1998sandia,lecture10}. Their key characteristics: (i) \textbf{identical burner, fuel and pilot} --- a central jet of partially premixed \ce{CH4}/air (25\%/75\% by volume) surrounded by a lean premixed \textbf{pilot} that anchors the flame, in a co-flow of air; the fuel is pre-diluted specifically to reduce soot and make optical (Raman/Rayleigh/LIF) diagnostics of temperature, mixture fraction and major species reliable. (ii) The flames differ \textbf{only in the jet bulk velocity / Reynolds number}, increasing from D to F (roughly $\mathrm{Re}\approx 22{,}400$, $33{,}600$, $44{,}800$) --- this is the sense of the draft's ``increasing in speed''. (iii) As the velocity rises, the local strain / scalar dissipation rate increases, so the flames show \textbf{progressively more local extinction}: flame D burns close to chemical equilibrium with little extinction (well described even by simple flamelet models), flame E shows moderate localised extinction, and flame F exhibits \textbf{substantial local extinction and re-ignition}, sitting close to global blow-off~\cite{lecture9,lecture10}. (iv) Because they come with \textbf{well-characterised boundary conditions and an extensive, openly-available laser-diagnostic database}, the D--E--F series is ideally suited to \textbf{model validation}: the increasing departure from equilibrium provides a graded test of a model's ability to capture finite-rate chemistry and extinction --- precisely the regime where simple (equilibrium/fast-chemistry) flamelet closures begin to fail and finite-rate or transported-PDF methods are needed~\cite{veynante2002turbulent,lecture10}.
+}
 
 
 
@@ -112,6 +173,13 @@ They are increasing in speed.
 
 \paragraph{Answer} The most important is tangential stretch. The tangential stretch carries the radicals outwards, possibly extinguishing the flame front.
 
+{\color{istblue}
+\paragraph{Claude answer}
+\textbf{Flame stretch} is the fractional rate of change of a flame-surface element, $K = \tfrac{1}{A}\,\mathrm{d}A/\mathrm{d}t = [\nabla_t\cdot\vec w_t + (\vec w\cdot\vec n)(\nabla\cdot\vec n)]_s$, i.e.\ the sum of \textbf{tangential strain} (flow non-uniformity along the surface) and a \textbf{curvature/motion} term~\cite{Law1988,lecture9}. The \textbf{counterflow (opposed-jet) configuration} --- two opposed nozzles, fuel-vs-oxidiser for a non-premixed flame or reactants-vs-products / twin-flames for a premixed flame, with a flat flame sitting near the stagnation plane --- is the canonical way to impose a \textbf{well-defined, steady, almost uniform strain rate} $a$ on a flat flame. Because the flame is planar and aligned with the stagnation plane, the curvature term is negligible and the stretch reduces essentially to pure \textbf{tangential strain}, $K \approx a$, which is why this geometry is so important: it isolates and quantifies the effect of stretch on flame structure, burning rate and extinction with a single control parameter~\cite{lecture9,Law1988,poinsot2012theoretical}.
+
+Its \textbf{importance} is threefold. (1) \emph{Diagnostics of stretch sensitivity}: sweeping $a$ traces the response of the flame (the classic \textbf{S-curve}) up to the \textbf{extinction strain rate}, and yields the Markstein length via $s_L = s_L^0 - \mathcal{L}K$ for premixed flames~\cite{Law1988,lecture9}. (2) \emph{Building block for flamelet/FGM modelling}: the strained counterflow flame is exactly the laminar ``flamelet'' whose solutions, parametrised by strain (equivalently the stoichiometric scalar dissipation rate $\chi_{st}\sim a$), populate the lookup manifolds used in turbulent combustion models. (3) \emph{Mechanism of extinction} --- confirming and elaborating the draft: as the strain (residence-time$^{-1}$) increases, the \textbf{tangential strain transports heat and radicals out of the thin reaction zone} faster than chemistry can replenish them; when the chemical time can no longer keep up with the reduced residence time the flame extinguishes (heat loss $+$ radical loss). A key distinction: a \textbf{premixed} flame has a propagation speed and, unless it is restrained (as it is at the counterflow stagnation plane) or subject to differential diffusion, it can simply adjust its position and ``run away'' from the strain, so stretch is only effective when the flame is held; a \textbf{non-premixed} flame has \emph{no} propagation speed, cannot escape the strain, is therefore directly and immediately affected, and extinguishes at comparatively \textbf{smaller} strain rates~\cite{lecture9,Law1988,warnatz2006combustion}.
+}
+
 
 
 
@@ -120,6 +188,11 @@ They are increasing in speed.
 {\color{gray}\footnotesize [Claude context: check Lecture 9/10; Warnatz Ch.15 (progress variable, premixed turbulent combustion); combustion\_modeling.pdf (supplementary, verify against Warnatz)]}
 
 \paragraph{Answer} same as \ref{Q:premix progress var}
+
+{\color{istblue}
+\paragraph{Claude answer}
+Answered in full under Premixed Combustion (Sec.~\ref{Q:premix progress var}), covering both the laminar and turbulent descriptions; only the essentials and the modelling-chapter angle are added here. The \textbf{progress variable} $c=(Y_k-Y_{k,u})/(Y_{k,b}-Y_{k,u})$ or $(T-T_u)/(T_b-T_u)$ runs monotonically from $0$ (unburnt) to $1$ (burnt) and describes a premixed flame \textbf{intrinsically}: the flame is the iso-surface $c=c_f$ with normal $\vec n=-\nabla c/|\nabla c|$, and $c$ obeys a reaction--diffusion--convection equation with chemical source $S_c$~\cite{lecture9,warnatz2006combustion}. For a \textbf{turbulent} premixed flame one solves the Favre-filtered equation for $\tilde c$, which introduces the unclosed turbulent flux $\overline{\rho}\,\widetilde{u_i''c''}$ and mean reaction rate $\overline{\dot\omega}_c$~\cite{lecture10,veynante2002turbulent}. From the \emph{modelling} standpoint of this chapter the key point is that $c$ (alongside mixture fraction $Z$ for partially premixed systems) is the natural \textbf{controlling/tabulation variable}: it is the coordinate of flamelet/progress-variable and \textbf{FGM} manifolds and the basis of flame-surface-density and flame-speed-closure models, with the subgrid wrinkling supplied through a presumed PDF $P(c;\tilde c,\widetilde{c''^2})$~\cite{lecture10,vanoijen2000fgm,peters2000turbulent}.
+}
 
 
 
@@ -134,6 +207,15 @@ They are increasing in speed.
 
 \todo{for Claude: still write the answer to this one}
 
+{\color{istblue}
+\paragraph{Claude answer}
+\textbf{FGM = Flamelet-Generated Manifold} (van Oijen \& de Goey), a \textbf{tabulated-chemistry} method that fuses the \emph{flamelet} idea (the flame structure is governed by a few controlling variables) with the \emph{low-dimensional manifold} idea (the accessed thermochemical states form a low-dimensional surface in composition space)~\cite{vanoijen2000fgm,lecture10}. The thermochemical state is parametrised by a \textbf{small set of controlling variables} --- for partially premixed / non-premixed combustion typically the \textbf{mixture fraction} $Z$ (mixing) and a \textbf{reaction-progress variable} $c$ (reaction progress), with optionally enthalpy $h$ to include heat loss. The manifold $Y_k^{fgm}(Z,c)$, $T^{fgm}(Z,c)$, and the source term $S_c(Z,c)$ are \textbf{pre-computed once} with full detailed chemistry by solving representative \textbf{1-D laminar flamelets} --- either non-premixed counterflow flamelets carried towards equilibrium, or a set of premixed flamelets spanning a range of equivalence ratios --- and stored in a lookup table~\cite{lecture10,vanoijen2000fgm}. In the turbulent CFD one then solves transport equations only for the few controlling variables (and their subgrid variances), and recovers all reactive scalars by integrating the manifold over a \textbf{presumed joint PDF}:
+\begin{equation*}
+\tilde Y_k = \int_0^1\!\!\int_0^1 Y_k^{fgm}(Z,c)\,\tilde P(Z,c)\,\mathrm{d}Z\,\mathrm{d}c .
+\end{equation*}
+\textbf{Outline of the approach:} (1) choose controlling variables; (2) generate the flamelet library and build the manifold; (3) integrate with the presumed PDF to make a \emph{turbulent} (Favre-averaged/filtered) table; (4) in the CFD, transport $\tilde Z$, $\tilde c$ (and variances) and look up the mean state. \textbf{Advantages:} it retrieves the accuracy of detailed chemistry at the cost of only $\sim$2--3 scalar transport equations, so it is far cheaper than transported-PDF or finite-rate approaches and naturally spans the premixed--non-premixed (partially premixed) range; it has been extended to heat loss, ignition delay and dilution by adding manifold dimensions~\cite{lecture10,vanoijen2000fgm}. \textbf{Drawbacks:} it presumes the chosen low-dimensional manifold (i.e.\ the flamelet structure) captures the chemistry, so it degrades for strongly unsteady or highly non-flamelet situations where the true state leaves the manifold, and accuracy depends on the chosen controlling variables and PDF shape~\cite{lecture10}.
+}
+
 
 
 
@@ -146,6 +228,13 @@ Flamelet should be used when the flame is much thinner than any turbulent scale.
 
 PDF is meant for when turbulence and chemistry cannot be decoupled. Turbulence influences mixing. Turbulence requires the use of density-weighted average quantities, especially for the Arrhenius term, and the chemical source term cannot be evaluated simply from a mean quantity. To solve this, the average influence of the turbulent fluctuations is calculated from a PDF.
 
+{\color{istblue}
+\paragraph{Claude answer}
+The two methods are \textbf{conceptually opposite in what they assume and what they leave to be modelled}~\cite{lecture10,veynante2002turbulent,pope1985pdf}. \textbf{Flamelet models} rest on a \textbf{separation of scales}: the reaction zone is assumed thin compared with the turbulent scales, so the turbulent flame is an ensemble of essentially \emph{laminar} flame structures. Chemistry and turbulence are thereby \textbf{decoupled} --- the thermochemistry is pre-computed as a \textbf{low-dimensional manifold} (a function of $Z$ and/or $c$, possibly parametrised by the scalar dissipation rate), and turbulence enters \emph{only} through transport and through the statistics (a presumed PDF) used to average over the manifold. The instantaneous state is \textbf{constrained to lie on that manifold}. \textbf{Transported-PDF (and filtered-density-function) methods make no such assumption}: they solve a transport equation for the joint PDF of the thermochemical state itself, in which --- crucially --- the highly non-linear \textbf{chemical source term appears in closed form} (it needs no turbulence--chemistry-interaction model, however complex the kinetics), while the term that must instead be \emph{modelled} is the \textbf{molecular mixing (micromixing)} in composition space~\cite{lecture10,pope1985pdf,haworth2010pdf}. So the ``complete difference'' is a reversal of which physics is exact and which is modelled: flamelet methods model the chemistry's coupling to turbulence by assuming a structure but treat the reaction rate as a tabulated/manifold quantity, whereas PDF methods treat the reaction rate \emph{exactly} and instead model the mixing --- with no flame-structure assumption, so they handle finite-rate effects, local extinction and re-ignition that flamelet models cannot, at much greater cost.
+
+Addressing the question in the note above: \textbf{neither method is restricted to one combustion mode}. Flamelet models exist for \emph{premixed} flames (progress-variable / flame-surface-density), for \emph{non-premixed} flames (mixture-fraction flamelets) and for \emph{partially premixed} systems (FGM, using both $Z$ and $c$). Transported-PDF methods are \textbf{general and regime-independent} --- their whole appeal is that they make no assumption about premixed vs.\ non-premixed structure --- and are applied successfully to premixed, non-premixed and partially premixed combustion alike~\cite{lecture10,haworth2010pdf,veynante2002turbulent}. The distinction between the two families is therefore \emph{not} about combustion mode but about whether a low-dimensional manifold (flamelet) assumption is made or not.
+}
+
 
 
 
@@ -156,6 +245,11 @@ PDF is meant for when turbulence and chemistry cannot be decoupled. Turbulence i
 \paragraph{Answer} Based on the previous answer and the Peters diagram.
 
 Flamelets when sl > u\_rms or Ka < 1, t\_chem < t\_k. See \ref{Q: models peters}
+
+{\color{istblue}
+\paragraph{Claude answer}
+The recommendation follows directly from the regime classification and the model--regime association built up at Sec.~\ref{Q: models peters} (Borghi--Peters diagram); the draft's criterion is on the right track. \textbf{Flamelet models are recommended when the flamelet assumption holds} --- a thin reaction zone relative to the turbulence, i.e.\ \textbf{high Damk\"ohler number} and \textbf{low-to-moderate Karlovitz number} (the wrinkled, corrugated and thin-reaction-zone regimes, $\mathrm{Ka}\lesssim 100$), with reasonably fast, near-manifold chemistry~\cite{lecture10,peters2000turbulent,veynante2002turbulent}. There the thermochemistry collapses onto a low-dimensional manifold parametrised by $Z$ and/or $c$ (and $\chi$), so flamelet/FGM tabulation with a presumed PDF is \textbf{accurate and very cheap} --- the natural choice for design-oriented RANS/LES of most premixed and non-premixed devices (e.g.\ Sandia flame D). \textbf{Transported-PDF methods are recommended when chemistry and turbulence cannot be decoupled} --- \textbf{low Da / high Ka} (broken/distributed reaction zones, well-stirred-reactor regime), and whenever \textbf{finite-rate effects dominate}: strong \textbf{local extinction and re-ignition} (Sandia flames E and F), \textbf{slow chemistry} such as \ce{NOx} and CO that lags the main heat release, and strongly unsteady or non-manifold behaviour~\cite{lecture10,pope2000turbulent,veynante2002turbulent}. Their advantage is the \emph{exact} treatment of the reaction rate with no flame-structure assumption; their cost (and the modelled micromixing term) is the price paid, so they are reserved for the regimes and quantities where flamelet models are known to fail. In short: \textbf{flamelet where a manifold captures the state, transported PDF where it does not}.
+}
 
 
 
